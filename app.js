@@ -3,13 +3,18 @@ import qr from 'qr-image';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import cors from 'cors';
+
+const app = express();
+app.use(cors());
 
 // Use ES module alternative to __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 
 // Middleware to parse URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
@@ -61,5 +66,10 @@ app.post('/generate', (req, res) => {
         res.status(500).send("Failed to generate QR code. Invalid input data.");
     }`
 });
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+
 
 
