@@ -153,7 +153,7 @@ app.post('/generate', (req, res) => {
     } catch (error) {
         console.error("Error generating QR code:", error);
         res.status(500).send("Failed to generate QR code. Invalid input data.");
-    }
+    }`
 });
 
 
