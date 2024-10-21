@@ -23,10 +23,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve the HTML form from the public directory
-app.get('/', (req, res) => {
-     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  
+app.get('/health', (req, res) => {
+    res.send('OK');
 });
+
 
 // Handle form submission and generate QR code
 app.post('/generate', (req, res) => {
