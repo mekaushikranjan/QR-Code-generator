@@ -1,20 +1,19 @@
 {
-  "types": "module",
+  "type": "module",
+  "name": "2.4-qr-code-project",
+  "version": "1.0.0",
+  "main": "app.js",
+  "description": "",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "fs": "^0.0.1-security",
-    "express": "^4.21.1"
+    "express": "^4.21.1",
     "inquirer": "^9.2.16",
     "qr-image": "^3.2.0"
   },
-  "name": "2.4-qr-code-project",
-  "version": "1.0.0",
-  "type": "module",
-  "main": "app.js",
   "devDependencies": {},
   "scripts": {
     "start": "node app.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  }
 }
