@@ -1,24 +1,21 @@
 {
-  "types": "module",
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "inquirer": "^9.2.16",
-    "qr-image": "^3.2.0"
-  },
-  "name": "2.4-qr-code-project",
+  "name": "qr-code generator",
   "version": "1.0.0",
-  "type": "module",
-  "main": "index.js",
-  "devDependencies": {},
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "engines": {
+    "node": "v20.17.0" // or specify the version you are using
+  },
+  "dependencies": {
+    "express": "^4.x",
+    "qr-image": "^3.x"
+  }
 }
+
 {
-  "name": "my-package",
+  "name": "qr-code generator",
   "scripts": {
     "build": "babel src -d lib",
     "test": "jest"
