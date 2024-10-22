@@ -18,12 +18,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware to parse URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from the public directory (HTML, CSS, and generated QR image)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Serve the HTML form from the public directory
+// Serve the HTML form from the root directory
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname,'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Handle form submission and generate QR code
@@ -34,7 +31,7 @@ app.post('/generate', (req, res) => {
         return res.status(400).send('Invalid input. Please provide valid text.');
     }
 
-    const qrImagePath = path.join(__dirname, 'public', 'qr_img.png');
+    const qrImagePath = path.join(__dirname, 'qr_img.png'); // Store QR image in root
 
     try {
         const qr_svg = qr.image(inputText, { type: 'png' });
@@ -64,5 +61,5 @@ app.post('/generate', (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
