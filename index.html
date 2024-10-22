@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
-    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>QR Code Generator</h1>
-        <form action="/generate" method="POST">
-            <label for="input">Enter Text (can be anything):</label>
-            <input type="text" id="input" name="input" placeholder="Enter text, number, or URL" required>
-            <button type="submit">Generate QR Code</button>
-        </form>
-        <div class="qr-container">
-            <h2>Generated QR Code:</h2>
-            <img src="/qr_img.png" alt="Your QR code will appear here" onerror="this.style.display='none'">
-        </div>
-    </div>
+    <h1>QR Code Generator</h1>
+    <form action="/generate" method="POST">
+        <label for="input">Enter text or URL:</label>
+        <input type="text" id="input" name="input" required>
+        <button type="submit">Generate QR Code</button>
+    </form>
+
+    <!-- This img tag will show the generated QR code -->
+    <h3>Your QR Code:</h3>
+    <img id="qr-code" src="qr_img.png" alt="QR Code" style="display: none;">
+
+    <script>
+        // Check if the QR code image exists, and display it
+        fetch('qr_img.png')
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('qr-code').style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.log("QR Code not found.");
+            });
+    </script>
 </body>
 </html>
